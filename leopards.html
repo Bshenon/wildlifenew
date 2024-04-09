@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="leopards.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Sri Lankan Wildlife</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body>
+    <section class="header" id="lpdhdr">
+        <nav class="sticky">
+            <a href="index.html"><img src="new new.png" alt="logo"></a>
+            <section class="topnav"><b>
+                    <a href="index.html">Home</a>
+                    <a href="introduction.html">Introduction </a>
+                    <a href="conserve.html"> Conservation</a>
+                    <section class="dropdown">
+                        <button class="dropbtn"><a class="active" href=#><b>Animals ▾</b></a></button>
+                        <section class="dropdown-content">
+                            <a href="indigenous.html"> Indigenous Animals </a>
+                            <a href="leopards.html">Leopards</a>
+                        </section>
+                    </section>
+                    <section class="dropdown">
+                        <button class="dropbtn"><a href=#><b>National Parks ▾</b></a></button>
+                        <section class="dropdown-content">
+                            <a href="yala.html">Yala Park</a>
+                            <a href="wilpaththu.html">Wilpaththu Park</a>
+                        </section>
+                    </section>
+                    <a href="contact.html" id="button">Contact</a>
+                    <a href="logine.html" id="contactbutton">Login</a>
+                </b></section>
+        </nav>
+    </section>
+
+    <div x-data = "lepoData">
+    <section class="venues">
+        <h3 x-text="lepo"></h3>
+                </section>
+            </section>
+        </section>
+        </section>
+        <section class="facts_leopard_1">
+            <p x-text="lepoFact" class="editable" contenteditable="true"></p>
+        </section>
+        <section class="facts_leopard_2">
+            <p x-text="lepooFact" class="editable" contenteditable="true"></p>
+        </section>
+        <section class="threats_leopards">
+        <section class="threat_1">
+            <h2 x-text="bio" style="padding-top: 80px;"></h2>
+            <P x-text="lepoBio" class="editable" contenteditable="true"></P>
+            <img src="cub.webp" alt="Habitat Loss">
+        </section>
+    
+        <section class="threat_2">
+            <h2 x-text="desc"></h2>
+            <p x-text="physical" class="editable" contenteditable="true"></p>
+            <img src="world.jpg" alt="Habitat Loss" width="80%">
+    
+        </section>
+        </section>
+    </div>
+
+    <script>
+        const lepoData = {
+            "lepo":'',
+            "lepoFact":'',
+            "bio":'',
+            "lepoBio":'',
+            "desc":'',
+            "physical":'',
+    
+        }
+        fetch ('leopards.json')
+            .then ( response => response.json())
+            .then (data => {
+                lepoData.lepo =data.lepo;
+                lepoData.lepoFact =data.lepoFact;
+                lepoData.bio =data.bio;
+                lepoData.lepoBio =data.lepoBio; 
+                lepoData.desc =data.desc;
+                lepoData.physical =data.physical;     
+    
+        })
+            .catch(error => console.error('Error fetching data:', error));
+    
+    </script>
+    <script>
+        // Check if the user is logged in
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+            window.location.href = "login.html"; // Redirect to login page if not logged in
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            let editingEnabled = false; // Variable to track whether editing is enabled
+    
+            // Function to toggle editing mode
+            function toggleEditing() {
+                editingEnabled = !editingEnabled; // Toggle editing mode
+                const editableElements = document.querySelectorAll('[contenteditable]');
+                editableElements.forEach(element => {
+                    element.contentEditable = editingEnabled;
+                });
+    
+                // Change button text
+                const button = document.querySelector('.edit-button');
+                button.textContent = editingEnabled ? 'Save' : 'Edit Text';
+            }
+    
+            // Function to edit text content
+            function editTextContent(event) {
+                if (!editingEnabled) return; // Exit if editing is not enabled
+    
+                var target = event.target;
+                if (target.hasAttribute('contenteditable')) {
+                    var newText = prompt("Enter the new content:");
+                    if (newText !== null) {
+                        target.innerText = newText;
+                    }
+                }
+            }
+    
+            // Attach click event listener only to elements with the class 'editable'
+            const editableElements = document.querySelectorAll('.editable');
+            editableElements.forEach(element => {
+                element.addEventListener('click', editTextContent);
+            });
+    
+            // Attach click event listener to the edit button
+            const editButton = document.querySelector('.edit-button');
+            editButton.addEventListener('click', toggleEditing);
+        });
+    </script>
+    
+    
+    
+    
+    
+    
+
+        <footer>
+            <section class="container">
+                <section class="footer-content" style="text-align: center;">
+                    <h2 id="footerContent" style="padding-bottom: 20px;" contenteditable="false">Contact Us</h2>
+                    <p style="margin: 5px 0;" contenteditable="false"><b>Email:</b> slwild@gmail.com</p>
+                    <p style="margin: 5px 0;" contenteditable="false"><b>Phone:</b> +94 324 523 4234 </p>
+                    <p style="margin: 5px 0;" contenteditable="false"><b>Address:</b> Sri lankan wildlife, 321. yalla</p>
+                    <!-- Newsletter Subscription Form -->
+                    <section class="newsletterForm">
+                    <form id="newsletterForm" onsubmit="subscribeNewsletter(event)" style="margin-top: 20px;">
+                        <input type="email" id="emailInput" placeholder="Enter your email" required style="padding: 10px; border: 2px solid #000000; border-radius: 5px; width: 200px;">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </section>
+                    <button class="edit-button" onclick="toggleEditing()">Edit Text</button>
+                </section>
+            </section>
+            <h2 style="padding-top: 50px;">Socials</h2>
+            <section class="social-icons">
+                <a class="btn" href="https://www.facebook.com/" target="_blank"><iconify-icon icon="ic:baseline-facebook"></iconify-icon></a>
+                <a class="btn" href="https://www.youtube.com/" target="_blank"><iconify-icon icon="mdi:youtube"></iconify-icon></a>
+                <a class="btn" href="https://www.instagram.com/" target="_blank"><iconify-icon icon="mdi:instagram"></iconify-icon></a>
+                <a class="btn" href="https://www.twitter.com/" target="_blank"><iconify-icon icon="mdi:twitter"></iconify-icon></a>
+            </section>
+        </footer>
+        
+        
+            <!-- Script for Newsletter Subscription -->
+            <script>
+                function subscribeNewsletter(event) {
+                    event.preventDefault();
+                    const email = document.getElementById('emailInput').value;
+                    let subscriptions = JSON.parse(localStorage.getItem('newsletterSubscriptions')) || [];
+                    subscriptions.push(email);
+                    localStorage.setItem('newsletterSubscriptions', JSON.stringify(subscriptions));
+                    alert('Subscribed successfully!');
+                }
+            </script>
+        </body>
+    </footer>
+    
+
+    <script>
+        // JSON data for leopard facts
+        const leopardFacts = {
+            "fact1": "The leopard has an islandwide distribution occurring in protected areas, such as national parks, and isolated forest patches in the hill country and areas with suitable habitat. Leopards can be found in the continents and Africa and Asia, where they are widely distributed but declining throughout most of their range. The sub-species Panthera pardus kotiya is only found in Sri Lanka.",
+            "fact2": "The Sri Lankan Leopard is rapidly declining due to habitat loss and fragmentation, and hunting for trade and due to pest control. Skins and canines are widely traded in Sri Lanka, as the canine is worn as a talisman by some village folks as it is said to bring about good fortune, while certain parts of the animal is eaten or applied to traditional medicine."
+        };
+
+        // JSON data for leopard biology and description
+        const leopardInfo = {
+            "biology": "Leopards are carnivorous and feed on a myriad of species from Sambur to hare, langurs to rats. Scat analysis carried out in Sri Lanka has found remains of crabs, frog and other small vertebrate and invertebrates. The leopard is a very adaptable animal, able to adapt and occupy various places, there is even a record of a family of leopards occupying a football stadium in Johannesburg, South Africa. This was only noticed when the population of domestic dogs and cats took a rapid decline. Leopards are mainly nocturnal animals but are also encountered during the day, especially in the early mornings and late afternoon. They usually forage alone except in the mating season or when mother and cubs are encountered.",
+            "description": "Leopards are stocky when compared to the congeners. The tail is longer than half the body length measured from head to tail. They have a shoulder height of about 45 to 80 cm. The muscles attached to the scapula are exceptionally strong, which enhance their ability to climb trees. They are sexually dimorphic, the males being atleast 30% larger than females and mature males having large and broad heads. The Sri Lankan subspecies is one of the largest subspecies of leopard found in the world; this is attributed to lack of other large cats, such as the lion, tiger, viz, putting the leopard at the top of the food chain, no competitive restriction from large prey."
+        };
+
+        let editMode = false;
+
+        function toggleEditMode() {
+            editMode = !editMode;
+            const editableElements = document.querySelectorAll('.editable');
+
+            editableElements.forEach(element => {
+                element.contentEditable = editMode;
+                if (editMode) {
+                    element.style.backgroundColor = '#f9f9f9';
+                } else {
+                    element.style.backgroundColor = 'transparent';
+                }
+            });
+
+            const editButton = document.querySelector('.edit-button');
+            editButton.textContent = editMode ? 'Save' : 'Edit Text';
+        }
+
+        // Function to load leopard facts dynamically
+        function loadLeopardFacts() {
+            document.getElementById("factsLeopard1").innerHTML = "<p class='editable'>" + leopardFacts.fact1 + "</p>";
+            document.getElementById("factsLeopard2").innerHTML = "<p class='editable'>" + leopardFacts.fact2 + "</p>";
+            document.getElementById("leopardBiology").textContent = leopardInfo.biology;
+            document.getElementById("leopardDescription").textContent = leopardInfo.description;
+        }
+
+        // Call the function to load leopard facts when the page loads
+        window.onload = loadLeopardFacts;
+    </script>
+</body>
+
+</html>

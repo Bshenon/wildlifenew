@@ -1,0 +1,323 @@
+/*leopards page */
+
+#lpdhdr{
+    background-image: url(leppo.jpg); 
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 580px;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+}
+
+body {
+    background-color:rgb(113, 113, 113); /* Replace "your_color_here" with the desired color */
+}
+
+  
+.venues{
+    padding-top: 90px;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 120px;
+}
+.venues h3{
+    font-size: 170px;
+    font-weight: 600;
+    line-height: 50px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+.venues p{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+  
+.venues-image {
+    display: flex;
+}
+  
+.venues-box {
+    position: relative;
+    margin: 10px;
+    overflow: hidden;
+    transition: border 0.3s ease;
+    box-sizing: border-box; 
+    border: 5px solid transparent; 
+}
+.venues-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+        /* Additional CSS for editable elements */
+        .editable {
+            color: black; /* Set text color to black */
+        }
+
+        /* Styling for the "Edit Text" button */
+        .edit-button {
+            background-color: #ff9f0586; /* Green background */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .edit-button:hover {
+            background-color: #7f4f0186;
+            /* Darker green on hover */
+        }
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+  
+.overlay:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+  
+.overlay p{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    font-size: 160%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+  
+.venues-box:hover {
+    border: 5px solid #fafffa;
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: .7s;
+}
+  
+  
+.venues-box:hover .overlay {
+    opacity: 1;
+    transform: scale(1); 
+    cursor: pointer;
+}
+  
+.facts_leopard_1{
+    background-color: rgb(95, 74, 31);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 210px;
+    padding-right: 210px;
+    text-align: center;
+}
+
+.facts_leopard_1 p{
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: 'Playfair Display', serif;
+}
+
+.facts_leopard_2{
+    background-color: rgb(70, 71, 70);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 210px;
+    padding-right: 210px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.facts_leopard_2 p{
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: 'Playfair Display', serif;
+}
+  
+.threats_leopards {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    margin-bottom: 100px;
+    font-family: 'Playfair Display', serif;
+}
+
+.threat_1 {
+    width: 600px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #6a5f0089;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.threat_1:hover {
+    transform: scale(1.05);
+}
+
+.threats_leopards img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.threats_leopards h2 {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    padding-bottom: 0px;
+}
+
+.threats_leopards p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.threats_leopards ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.threats_leopards a {
+    color: rgb(13, 106, 19);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.threats_leopards a:hover {
+    text-decoration: underline;
+}
+
+
+.threat_2 {
+    width: 600px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #490707a9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.threat_2:hover {
+    transform: scale(1.05);
+}
+
+/* Newsletter Subscription Form */
+.newsletter-subscription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.newsletter-subscription input[type="email"] {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.newsletter-subscription button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.newsletter-subscription button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Edit Text Button */
+.edit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+        /* Button styles */
+        .edit-button {
+            background-color: #ff9f0586; /* Orange background color */
+            border: none; /* Remove border */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Add padding */
+            text-align: center; /* Center text */
+            text-decoration: none; /* Remove underline */
+            display: inline-block; /* Make it inline block */
+            font-size: 16px; /* Set font size */
+            cursor: pointer; /* Add cursor pointer */
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+  
+        /* On hover, change background color */
+        .edit-button:hover {
+            background-color: #7f4f0186;
+        }
+        /* CSS for Newsletter Subscription Form */
+.emailInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .emailInput:focus {
+    outline: none;
+    border-color:#ff9f0586; /* Change border color when focused */
+  }
+  
+  .newsletterForm button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff9f0586;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .newsletterForm button:hover {
+    background-color: #7f4f0186;
+    /* Change background color on hover */
+  }
+  

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="conserve.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+        // JSON data for Conservation section
+        const conservationData = {
+            title: "We Protect the Biodiversity of Sri Lanka",
+            content: "The Department of Wildlife Conservation Conserves the Biodiversity of Sri Lanka. Every individual species is provided legal protection through the Fauna and Flora Protection Ordinance No 2 of 1937. Habitats and the associated biodiversity are protected through a network of Protected Areas. International Trade of Wild Species are Regulated both using the provisions Fauna and Flora Protection Ordinance a the Provisions of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES). The first attempt to stop the destruction of wildlife resources of Sri Lanka was made in 1889, by the Conservator of Forests , Colonel Clark, R.A,. He brought the disastrous effects of the commercial exploitation of wildlife resources in the country, to the notice of the Government of Ceylon and advocated immediate legislation which would forbid the destroying wild animals, for the export of hides. His successor in office, Mr. A.F. Broun continued the agitation and persuaded the Government to pass two Ordinances, titled “An Ordinance to prevent the wanton destruction of elephants, buffaloes and other game” and “An Ordinance to readjust the customs duties leviable on firearms and to impose an export duty on certain hides and horns”."
+        };
+
+        // Function to load Conservation content from localStorage or fallback to default data
+        function loadConservationContent() {
+            const conservationContent = localStorage.getItem('conservationContent');
+            return conservationContent ? JSON.parse(conservationContent) : conservationData;
+        }
+
+        // Function to display Conservation content
+        function displayConservationContent() {
+            const { title, content } = loadConservationContent();
+            document.getElementById('conservationTitle').innerText = title;
+            document.getElementById('conservationContent').innerText = content;
+        }
+
+        // Function to store Conservation content in localStorage
+        function storeConservationContent() {
+            localStorage.setItem('conservationContent', JSON.stringify(conservationData));
+        }
+
+        // Store Conservation content in localStorage on page load
+        storeConservationContent();
+
+        // Function to edit text content
+        function editTextContent() {
+            var newText = prompt("Enter the new content:");
+            if (newText !== null) {
+                document.getElementById('conservationContent').innerText = newText;
+                // Update localStorage with the new content
+                conservationData.content = newText;
+                storeConservationContent();
+            }
+        }
+
+        function toggleEditText() {
+    var editButton = document.getElementById('editButton');
+    if (editButton.innerText === "Edit Text") {
+        editButton.innerText = "Save";
+        // Call function to enable text editing
+        enableTextEditing();
+    } else {
+        editButton.innerText = "Edit Text";
+        // Call function to save edited text
+        saveEditedText();
+    }
+}
+
+function enableTextEditing() {
+    // Code to enable text editing
+    // For example, you can make text content editable
+    var elementsToEdit = document.querySelectorAll('[contenteditable="true"]');
+    elementsToEdit.forEach(function(element) {
+        element.setAttribute('contenteditable', 'true');
+    });
+}
+
+function saveEditedText() {
+    // Code to save edited text
+    // For example, you can retrieve the edited text and save it
+    var editedElements = document.querySelectorAll('[contenteditable="true"]');
+    editedElements.forEach(function(element) {
+        // Save the edited content
+        // For demonstration, let's just log it to console
+        console.log(element.innerText);
+    });
+}
+
+    </script>
+    <title>Sri Lankan Wildlife</title>
+
+    
+</head>
+<body>
+    <section class="header" id="conshdr">
+    <nav class="sticky">
+        <a href="index.html"><img src="new new.png" alt="logo"></a>
+        <section class="topnav">
+            <a href="index.html">Home</a>
+            <a href="introduction.html">Introduction</a>
+            <a class="active" href="conserve.html">Conservation</a>
+            <section class="dropdown">
+                <button class="dropbtn"><a href="#"><b>Animals ▾</b></a></button>
+                <section class="dropdown-content">
+                    <a href="indigenous.html">Indigenous Animals</a>
+                    <a href="leopards.html">Leopards</a>
+                </section>  
+            </section>
+            <section class="dropdown">
+                <button class="dropbtn"><a href="#"><b>National Parks ▾</b></a></button>
+                <section class="dropdown-content">
+                    <a href="yala.html">Yala Park</a>
+                    <a href="wilpaththu.html">Wilpaththu Park</a>
+                </section>
+            </section>
+            <a href="contact.html" id="button">Contact</a> 
+            <a href="logine.html" id="contactbutton">Login</a>  
+        </section>
+    </nav>
+    </section>
+
+    <!-- Conservation Section -->
+    <div x-data = "consData">
+    <section class="title">
+        <h3 x-text="title" id="conservationTitle"></h3>
+    </section>
+    <hr>
+    <section class="video">
+        <video width="1500px" height="600px" controls>
+            <source src="Wildlife Conservation.mp4" type="video/mp4">
+        </video>
+    </section>
+    <section class="mission">
+        <h3 x-text="subTitle"></h3>
+        <p id="conservationContent"></p>
+        <section class="parent">
+            <section class="child">
+                <img src="str.png" alt="DWC workers">
+            </section>
+        </section>
+    </section>
+    <hr>
+
+    <!-- Flexbox Section -->
+    <section class="flexbox">
+        <h3 x-text="success" class="topic"></h3>
+        <br>
+        <section class="protected">
+        <p x-text="protectedInfo">
+            </p>
+        </section>
+            <br>
+            <section class="gallery" style="text-align: center;">
+                <section class="column">
+                    <section class="photo">
+                        <section class="parent">
+                            <section class="child">
+                                <img src="pock.jpg">
+                            </section>
+                        </section>
+                    </section>
+                    <section class="photo">
+                        <section class="parent">
+                            <section class="child">
+                                <img src="nig.jpg">
+                            </section>
+                        </section>
+                    </section>
+                </section>
+                <section class="column">
+                    <section class="photo">
+                        <section class="parent">
+                            <section class="child">
+                                <img src="gg.jpg">
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            
+    <hr>
+
+    <!-- DWC Location: Google Map Section -->
+    <section class="map">
+        <h3 x-text="map"></h3>
+        <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31688.18501817799!2d79.89774490464494!3d6.887833048883672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae250aa85489b1f%3A0xd8773339b6b43dbb!2sDepartment%20of%20Wildlife%20Conservation!5e0!3m2!1sen!2slk!4v1704087041013!5m2!1sen!2slk" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+    </section>
+</div>
+<script>
+    const consData = {
+    "title":'',
+    "subTitle":'',
+    "success":'',
+    "protectedInfo":'',
+    "map":'',
+    };
+    fetch ('conserve.json')
+        .then ( response => response.json())
+        .then (data => {
+            consData.title =data.title;
+            consData.subTitle =data.subTitle;
+            consData.success =data.success;
+            consData.protectedInfo =data.protectedInfo;
+            consData.map =data.map;    
+
+    })
+        .catch(error => console.error('Error fetching data:', error));
+
+</script>
+<br>
+<!-- Footer -->
+<footer>
+    <section class="container">
+        <section class="footer-content" style="text-align: center;">
+            <h2 id="footerContent" style="padding-bottom: 20px;" contenteditable="false">Contact Us</h2>
+            <p style="margin: 5px 0;" contenteditable="false"><b>Email:</b> slwild@gmail.com</p>
+            <p style="margin: 5px 0;" contenteditable="false"><b>Phone:</b> +94 324 523 4234 </p>
+            <p style="margin: 5px 0;" contenteditable="false"><b>Address:</b> Sri lankan wildlife, 321. yalla</p>
+            <!-- Newsletter Subscription Form -->
+            <section class="newsletterForm">
+            <form id="newsletterForm" onsubmit="subscribeNewsletter(event)" style="margin-top: 20px;">
+                <input type="email" id="emailInput" placeholder="Enter your email" required style="padding: 10px; border: 2px solid #000000; border-radius: 5px; width: 200px;">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+            <button class="edit-button" onclick="toggleEditing()">Edit Text</button>
+        </section>
+    </section>
+    <h2 style="padding-top: 50px;">Socials</h2>
+    <section class="social-icons">
+        <a class="btn" href="https://www.facebook.com/" target="_blank"><iconify-icon icon="ic:baseline-facebook"></iconify-icon></a>
+        <a class="btn" href="https://www.youtube.com/" target="_blank"><iconify-icon icon="mdi:youtube"></iconify-icon></a>
+        <a class="btn" href="https://www.instagram.com/" target="_blank"><iconify-icon icon="mdi:instagram"></iconify-icon></a>
+        <a class="btn" href="https://www.twitter.com/" target="_blank"><iconify-icon icon="mdi:twitter"></iconify-icon></a>
+    </section>
+        <!-- Script for Newsletter Subscription -->
+        <script>
+            function subscribeNewsletter(event) {
+                event.preventDefault();
+                const email = document.getElementById('emailInput').value;
+                let subscriptions = JSON.parse(localStorage.getItem('newsletterSubscriptions')) || [];
+                subscriptions.push(email);
+                localStorage.setItem('newsletterSubscriptions', JSON.stringify(subscriptions));
+                alert('Subscribed successfully!');
+            }
+        </script>
+</footer>
+
+</body>
+</html>

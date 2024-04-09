@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="introduction.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Sri Lankan Wildlife</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+</head>
+<body>
+    <!--Background picture and the navigation bar belongs to this section.-->
+        <section class="header" id="introhdr">
+            <nav class="sticky">
+            <a href="index.html"><img src="new new.png" alt="logo"></a>
+            <section class="topnav"><b>
+                <a href="index.html">Home</a>
+                <a class="active" href="introduction.html">Introduction </a>
+                <a href="conserve.html"> Conservation</a>
+                <section class="dropdown">
+                    <button class="dropbtn"><a href= #><b>Animals ▾</b></a></button>
+                    <section class="dropdown-content">
+                      <a href="indigenous.html"> Indigenous Animals </a>
+                      <a href="leopards.html">Leopards</a>
+                    </section>  
+                </section>
+                <section class="dropdown">
+                    <button class="dropbtn"><a href= #><b>National Parks ▾</b></a></button>
+                    <section class="dropdown-content">
+                      <a href="yala.html">Yala Park</a>
+                      <a href="wilpaththu.html">Wilpaththu Park</a>
+                </section>
+                </b></section>
+                <a href="contact.html" id="button">Contact</a>
+                <a href="logine.html" id="contactbutton">Login</a>
+        </nav>
+        </section>
+
+<!-- Suitable content about different wildlife locations  -->
+<div x-data = "introData">
+<section class="locations">
+    <p x-text="location" class="editable" contenteditable="true"></p>
+</section>
+
+<!--Suitable content about different wildlife locations-->
+<section class="nature">
+    <section class="intro_box">
+    </section>  
+    <section class="nature_content">
+    <section class="intro_content" >
+        <p x-text="locationIntro" class="editable" contenteditable="true"></p> 
+    </section>
+    </section>
+    <section class="more_content" id="hortonhdr">
+    <p x-text="moreInfo" class="editable" contenteditable="true"></p>
+    </section>
+    </section>
+    </section>
+</section>
+<section class="sinharaja">
+    <h3 x-text="udawala" class="editable" contenteditable="true"></h3>
+    <section class="parent">
+    <section class="child">
+    </section>
+    </section>
+    <p x-text="udaText" class="editable" contenteditable="true"></p>
+    <section class="sinharaja_content" id="sinharajahdr">
+        <p class="symbol"></class=>.................................................................................................</p>
+    </section>
+</section>
+<section class="minneriya">
+    <h3 x-text="udawala" class="editable" contenteditable="true"></h3>
+    <section class="parent">
+    <section class="child">
+    </section>
+    </section>
+    <section class="minneriya_content">
+    <p x-text="hikkaText" class="editable" contenteditable="true"></p>
+    </section>
+</section>
+<hr>
+
+</section>
+
+<section class="table">
+    <h3 x-text="animals" class="editable" contenteditable="true"></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Map</th>
+                <th>Animal</th>
+                <th>Interesting Facts</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Udawalawe National Park</td>
+                <td><img src="uda.png" alt="Sinharaja map"></td>
+                <td>Elephants</td>
+                <td>Alongside its famous elephant herds, the park is home to mongooses, jackals, water monitor lizards, lots of crocodiles, sloth bears and the occasional leopard. There are 30 varieties of snake and a wealth of birdlife – 210 species at last count; northern migrants join the residents between November and April.</td>
+                <td><img src="uda ele.webp" alt="elephant"></td>
+            </tr>
+            <tr>
+                <td>Hikkaduwa Marine National Park</td>
+                <td><img src="hikka.jpg" alt="Horton plains map"></td>
+                <td>Fish</td>
+                <td>In Hikkaduwa National Park, 113 species of reef associated fish species belonging to 48 genera and 8 species of colorful fish have been recorded. Many invertebrates such as crabs, turtles, shrimps, lobsters, oysters and sea worms are also found. Three species of turtles are also foundin Hikkaduwa Marine National Park.</td>
+                <td><img src="fih.jpg" alt="Sambar Deer"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" class="footer"></td>
+            </tr>
+        </tfoot>
+    </table>
+    </section>
+</div>
+
+
+<script>
+    const introData = {
+    "location":'',
+    "locationIntro":'',
+    "moreInfo":'',
+    "udawala":'',
+    "udaText":'',
+    "hikka":'',
+    "hikkaText":'',
+    "animals":'',
+    };
+    fetch ('introduction.json')
+        .then ( response => response.json())
+        .then (data => {
+            introData.location =data.location;
+            introData.locationIntro =data.locationIntro;
+            introData.moreInfo =data.moreInfo;
+            introData.udawala =data.udawala;
+            introData.udaText =data.udaText;
+            introData.hikka =data.hikka;
+            introData.hikkaText =data.hikkaText;
+            introData.animals =data.animals;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+</script>
+<script>
+    // Check if the user is logged in
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) {
+        window.location.href = "login.html"; // Redirect to login page if not logged in
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        let editingEnabled = false; // Variable to track whether editing is enabled
+
+        // Function to toggle editing mode
+        function toggleEditing() {
+            editingEnabled = !editingEnabled; // Toggle editing mode
+            const editableElements = document.querySelectorAll('[contenteditable]');
+            editableElements.forEach(element => {
+                element.contentEditable = editingEnabled;
+            });
+
+            // Change button text
+            const button = document.querySelector('.edit-button');
+            button.textContent = editingEnabled ? 'Save' : 'Edit Text';
+        }
+
+        // Attach click event listener to the edit button
+        const editButton = document.querySelector('.edit-button');
+        editButton.addEventListener('click', toggleEditing);
+    });
+</script>
+
+
+    <footer> 
+        <section class="container">
+            <section class="footer-content">
+                <h2> Contact Us</h2>
+                <p>Email: slwild@gmail.com</p>
+                <p>Phone: +94 324 523 4234 </p>
+                <p>Address: Sri lankan wildlife, 321. yalla</p>
+                <!-- Newsletter Subscription Form -->
+                <section class="newsletterForm">
+                    <form id="newsletterForm" onsubmit="subscribeNewsletter(event)" style="margin-top: 20px;">
+                        <input type="email" id="emailInput" placeholder="Enter your email" required style="padding: 10px; border: 2px solid #000000; border-radius: 5px; width: 200px;">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </section>
+                <button class="edit-button" onclick="toggleEditing()">Edit Text</button>
+            </section>
+        </section>
+        <section class="social-icons">
+            <a class="btn" href="https://www.facebook.com/" target="_blank"><iconify-icon icon="ic:baseline-facebook"></iconify-icon></a>
+            <a class="btn" href="https://www.youtube.com/" target="_blank"><iconify-icon icon="mdi:youtube"></iconify-icon></a>
+            <a class="btn" href="https://www.instagram.com/" target="_blank"><iconify-icon icon="mdi:instagram"></iconify-icon></a>
+            <a class="btn" href="https://www.twitter.com/" target="_blank"><iconify-icon icon="mdi:twitter"></iconify-icon></a>
+        </section>
+    </footer>
+    
+    <script>
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            let subscriptions = JSON.parse(localStorage.getItem('newsletterSubscriptions')) || [];
+            subscriptions.push(email);
+            localStorage.setItem('newsletterSubscriptions', JSON.stringify(subscriptions));
+            alert('Subscribed successfully!');
+        }
+    </script>
+    
+</body>
+</html>

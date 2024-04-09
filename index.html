@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Sri lankan wild life</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <script>
+        // Check if the user is logged in
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        if (!loggedInUser) {
+            window.location.href = "login.html"; // Redirect to login page if not logged in
+        }
+
+        let editingEnabled = false; // Variable to track whether editing is enabled
+
+        // Function to toggle editing mode
+        function toggleEditing() {
+            editingEnabled = !editingEnabled; // Toggle editing mode
+            const editableElements = document.querySelectorAll('[contenteditable]');
+            editableElements.forEach(element => {
+                element.contentEditable = editingEnabled;
+            });
+
+            // Change button text
+            const button = document.querySelector('.edit-button');
+            button.textContent = editingEnabled ? 'Save' : 'Edit Text';
+        }
+
+        // Function to edit text content
+        function editTextContent(event) {
+            if (!editingEnabled) return; // Exit if editing is not enabled
+
+            var target = event.target;
+            if (target.hasAttribute('contenteditable')) {
+                var newText = prompt("Enter the new content:");
+                if (newText !== null) {
+                    target.innerText = newText;
+                }
+            }
+        }
+
+        // Attach click event listener to the document for editing
+        document.addEventListener('click', editTextContent);
+    </script>
+</head>
+<body>
+    <!-- logo and the navigation bar -->
+    <section class="header" id="homehdr">
+        <nav class="sticky">
+            <a href="index.html"><img src="new new.png" alt="logo" width="100px" height="100px"></a>
+            <section class="topnav"><b>
+                <a class="active" href="index.html">Home</a>
+                <a href="introduction.html">Introduction</a>
+                <a href="conserve.html">Conservation</a>
+                <section class="dropdown">
+                    <button class="dropbtn"><a href="#"><b>Animals ▾</b></a></button>
+                    <section class="dropdown-content">
+                        <a href="indigenous.html">Indigenous Animals</a>
+                        <a href="leopards.html">Leopards</a>
+                    </section>
+                </section>
+                <section class="dropdown">
+                    <button class="dropbtn"><a href="#"><b>National Parks ▾</b></a></button>
+                    <section class="dropdown-content">
+                        <a href="yala.html">Yala Park</a>
+                        <a href="wilpaththu.html">Wilpaththu Park</a>
+                    </section>
+                </section>
+                <a href="contact.html" id="button">Contact</a>
+                <a href="logine.html" id="contactbutton">Login</a>
+            </b></section>
+        </nav>
+    </section>
+    <!-- An introduction to Sri Lankan wildlife -->
+    <div x-data = "indexData">
+    <section class="introduction" id="introsec">
+        <h1 x-text="mainTitle" id="title"></h1>
+        <p style="text-align: center;">.</p>
+        <section class="row" id="paragraphs">
+            <section class="intro.col">
+                <section class="box">
+                    <img src="Agro-ecological-Regions-in-sri-lanka-1-1.jpg" alt="zones">
+                </section>
+                <h2 x-text="eco" contenteditable="false"></h2>
+                <p x-text="mountains" style="text-align: center;"></p>
+            </section>
+            <section class="intro.col">
+                <section class="box">
+                    <img src="foresrt.jpg" alt="Forestry">
+                </section>
+                <h2 x-text="forest" contenteditable="false"></h2>
+                <p x-text="forestText" style="text-align: center;"></p>
+            </section>
+            <section class="intro.col">
+                <section class="box">
+                    <img src="sea-animals.webp" alt="Biodiversity and ecosystems">
+                </section>
+                <h2 x-text="faunal" contenteditable="false"></h2>
+                <p x-text="faunalText" style="text-align: center;"></p>
+            </section>
+        </section>
+    </section>
+
+    <!-- bullent and the numbered points list and two paragraphs -->
+    <section class="facts">
+        <section class="animation">
+            <img src="fisher.jpg" alt="Tourist enjoying nature">
+        </section>
+        <section class="text-box">
+            <h2 style="text-align: center;" contenteditable="false">About Sri Lanka</h2>
+        </section>
+        <p><b contenteditable="false">.</b></p>
+    </section>
+
+    <!-- two paragraphs -->
+    <section class="para">
+        <section class="para.col">
+            <p x-text="pearl" class="info" contenteditable="false"></p>
+            <section class="facts2">
+                <section class="animation2">
+                    <img src="Nine Arch Bridge Sri Lanka.jpg" alt="Tourist enjoying nature">
+                </section>
+            </section>
+            <section class="parent">
+                <section class="child">
+                </section>
+            </section>
+            <p x-text="authen" class="more" contenteditable="false"></p>
+        </section>
+    </section>
+</div>
+
+
+
+<script>
+    const indexData = {
+    "mainTitle":'',
+    "eco":'',
+    "mountains":'',
+    "forest":'',
+    "forestText":'',
+    "faunal":'',
+    "faunalText":'',
+    "pearl":'',
+    "authen":'',
+    };
+    fetch ('index.json')
+        .then ( response => response.json())
+        .then (data => {
+            indexData.mainTitle =data.mainTitle;
+            indexData.eco =data.eco;
+            indexData.mountains =data.mountains;
+            indexData.forest =data.forest;
+            indexData.forestText =data.forestText;
+            indexData.faunal =data.faunal;
+            indexData.faunalText =data.faunalText;
+            indexData.pearl =data.pearl;
+            indexData.authen =data.authen       
+
+    })
+        .catch(error => console.error('Error fetching data:', error));
+
+</script>
+<!-- <section class="introduction" id="introsec">
+    <h1 x-text="mainTitle" id="title">This Is Sri Lanka</h1>
+    <p style="text-align: center;">.</p>
+    <section class="row" id="paragraphs">
+        <section class="intro.col">
+            <section class="box">
+                <img src="Agro-ecological-Regions-in-sri-lanka-1-1.jpg" alt="zones">
+            </section>
+            <h2 contenteditable="false">Ecological zones</h2>
+            <p style="text-align: center;">The mountains and the southwestern part of the country, known as the "wet zone", receive ample rainfall (an annual average of 2500 millimeters).</p>
+        </section>
+        <section class="intro.col">
+            <section class="box">
+                <img src="foresrt.jpg" alt="Forestry">
+            </section>
+            <h2 contenteditable="false">Forestry</h2>
+            <p style="text-align: center;">Forestry is the art and science of protecting, conserving and managing forests, tree plantations and natural resources. Since forest ecosystems are incredibly important to the planet, the field of Forestry is just as crucial for the environment as it is for our communities and economy.</p>
+        </section>
+        <section class="intro.col">
+            <section class="box">
+                <img src="sea-animals.webp" alt="Biodiversity and ecosystems">
+            </section>
+            <h2 contenteditable="false">Faunal diversity</h2>
+            <p style="text-align: center;">The most recent update on the Sri Lankan biodiversity was the 6th National Report of the Convention on Biological Diversity. This report provided an updated list of species as of the end 2018.</p>
+        </section>
+    </section>
+</section>
+<section class="facts">
+    <section class="animation">
+        <img src="fisher.jpg" alt="Tourist enjoying nature">
+    </section>
+    <section class="text-box">
+        <h2 style="text-align: center;" contenteditable="false">About Sri Lanka</h2>
+    </section>
+    <p><b contenteditable="false">.</b></p>
+</section>
+
+
+<section class="para">
+    <section class="para.col">
+        <p class="info" contenteditable="false">‘Pearl of the Indian Ocean’; ‘Emerald Isle’ – Sri Lanka has held many different names throughout its long and rich history. Home to eight stunning UNESCO World Heritage Sites, this relatively small island packs a punch with its deep diversity of culture, natural beauty and ancient history. It is no wonder that the country has been growing in popularity as a tourist destination, recording up to 2.3 million tourists in 2018.</p>
+        <section class="facts2">
+            <section class="animation2">
+                <img src="Nine Arch Bridge Sri Lanka.jpg" alt="Tourist enjoying nature">
+            </section>
+        </section>
+        <section class="parent">
+            <section class="child">
+            </section>
+        </section>
+        <p class="more" contenteditable="false">Authentic and diverse nature and wildlife: Sri Lanka is famous for its natural beauty and thriving wildlife – in fact, the country has been recognized as one of the world’s ‘biodiversity hotspots’, being home to an exceptionally high number of endemic species. As Jerome explained, “You have something for absolutely everyone. You have the entire beach all around the island, which offers kite surfing, diving, deep sea fishing, you name it; we [also] have eight national parks – along with elephants, leopards, and not forgetting the whales crossing the Mirissa Gulf; and of course, the culture, from temples to traditional fishing methods – there is a sense of authenticity about the country and its historical sites.”</p>
+    </section>
+</section> -->
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer>
+    <section class="container">
+        <section class="footer-content" style="text-align: center;">
+            <h2 id="footerContent" style="padding-bottom: 20px;" contenteditable="false">Contact Us</h2>
+            <p style="margin: 5px 0;" contenteditable="false"><b>Email:</b> slwild@gmail.com</p>
+            <p style="margin: 5px 0;" contenteditable="false"><b>Phone:</b> +94 324 523 4234 </p>
+            <p style="margin: 5px 0;" contenteditable="false"><b>Address:</b> Sri lankan wildlife, 321. yalla</p>
+            <!-- Newsletter Subscription Form -->
+            <section class="newsletterForm">
+            <form id="newsletterForm" onsubmit="subscribeNewsletter(event)" style="margin-top: 20px;">
+                <input type="email" id="emailInput" placeholder="Enter your email" required style="padding: 10px; border: 2px solid #000000; border-radius: 5px; width: 200px;">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+            <button class="edit-button" onclick="toggleEditing()">Edit Text</button>
+        </section>
+    </section>
+    <h2 style="padding-top: 50px;">Socials</h2>
+    <section class="social-icons">
+        <a class="btn" href="https://www.facebook.com/" target="_blank"><iconify-icon icon="ic:baseline-facebook"></iconify-icon></a>
+        <a class="btn" href="https://www.youtube.com/" target="_blank"><iconify-icon icon="mdi:youtube"></iconify-icon></a>
+        <a class="btn" href="https://www.instagram.com/" target="_blank"><iconify-icon icon="mdi:instagram"></iconify-icon></a>
+        <a class="btn" href="https://www.twitter.com/" target="_blank"><iconify-icon icon="mdi:twitter"></iconify-icon></a>
+    </section>
+</footer>
+
+
+    <!-- Script for Newsletter Subscription -->
+    <script>
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            let subscriptions = JSON.parse(localStorage.getItem('newsletterSubscriptions')) || [];
+            subscriptions.push(email);
+            localStorage.setItem('newsletterSubscriptions', JSON.stringify(subscriptions));
+            alert('Subscribed successfully!');
+        }
+    </script>
+</body>
+</html>

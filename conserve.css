@@ -1,0 +1,901 @@
+/* conserve page */
+
+#conshdr {
+    background-image: url(cccc.jpg); 
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 580px;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+  }
+  body {
+    background-color: rgba(49, 40, 16, 0.459); /* Set background color to black */
+}
+  .title {
+    text-align: center;
+    max-width:100%;
+    padding: 100px;
+    background-color:rgb(173, 172, 162);
+    border-radius: 8px;
+    padding-left:100%px;
+    padding-top: 10px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  
+  .title h3 {
+    font-size: 140px;
+    margin-bottom: -100px;
+    margin-left: 30px;
+    color: #1f1e1e;
+    line-height:auto ; 
+    padding: 100px;
+    font-weight: bold;
+    align-content: center;
+  }
+  
+  .title p {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #2d2d2d;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .title img{
+    width: 170px;
+    height: 140px;
+  }
+
+  .vedio{
+    padding-left: 100px;
+  }
+  
+  .mission {
+    align-items: center;
+    margin-bottom: 100px; 
+    margin: 100px;
+    margin-top: 100px;
+  }
+  
+  .mission h3 {
+    font-size: 40px;
+    padding-left: 10px;
+
+  }
+  
+  .mission p{
+    font-size: 17px;
+    padding-left:10px;
+    padding-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    padding-bottom: 30px;
+    word-spacing: 2px;
+  }
+  
+  .mission img{
+    max-width: 60%;
+    padding-left: 255px;
+  }
+  
+  .mission h3:hover {
+    color: rgb(9, 89, 44); 
+    cursor: pointer;
+    position: relative;
+
+  }
+  
+  .mission h3:hover::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(9, 89, 44);
+    position: absolute;
+    top: 100%;
+    animation: underline-animation 0.3s ease-in-out forwards;
+  }
+  
+  
+  .flexbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    font-family: 'Playfair Display', serif;
+    max-width: 1224px;
+    width: 90%;
+    padding: 40px 0;
+  }
+  
+  .flexbox .topic{
+    width: 50%;
+    padding-bottom: 50px;
+  
+  }
+  
+  .flexbox h3{
+    font-size: 34px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+  
+  .flexbox h3:hover {
+    color: rgb(9, 89, 44); 
+    cursor: pointer;
+    position: relative;
+    transition: .5s;
+  }
+  
+  .flexbox h3:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    background-color: rgb(9, 89, 44);
+    position: absolute;
+    top: 100%;
+  }
+  
+  .flexbox .gallery{
+    display: flex;
+    gap:20px;
+  }
+  
+  .flexbox .column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  .flexbox .photo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .flexbox .btnBox {
+    margin-top: 20px;
+  }
+  
+  .flexbox .btnBox a {
+    padding: 10px 20px;
+    background-color: rgb(65, 83, 68);
+    color: white;
+    border-radius: 5px;
+    font-size: 24px;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .flexbox .btnBox a:hover {
+    background-color: rgb(48, 90, 51);
+  }
+  
+  .map {
+    align-items: center;
+    margin-bottom: 100px; 
+    margin: 100px;
+    margin-top: 100px;
+    font-size: 35px;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .map h3:hover {
+    color: rgb(9, 89, 44); 
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .map h3:hover::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: rgb(9, 89, 44);
+    position: absolute;
+    top: 100%;
+    animation: underline-animation 0.3s ease-in-out forwards;
+  }
+  
+  .map p{
+    padding-left:10px;
+    padding-top: 50px;
+  }
+
+  /* CSS for the Edit button */
+button.edit-button {
+  background-color: #ff9f0586; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Make it inline-block */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Cursor style */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 20px; /* Add margin */
+}
+
+/* Hover effect */
+button.edit-button:hover {
+  background-color: #7f4f0186; /* Darker green */
+}
+
+/* Styling for the newsletter subscription form */
+.newsletter-form {
+  margin-top: 20px; /* Top margin */
+}
+
+.newsletter-form label {
+  display: block; /* Display block for the label */
+  font-size: 18px; /* Label font size */
+  margin-bottom: 5px; /* Bottom margin */
+  color: #333; /* Label text color */
+}
+
+.mission p {
+  font-family: "Arial", sans-serif; /* Use Arial or any suitable font */
+  text-align: justify; /* Justify align the text */
+  padding: 20px; /* Add equal padding */
+  font-size: 18px; /* Set the font size */
+  line-height: 1.6; /* Adjust line height for better readability */
+  color: #333; /* Darker color for better visibility */
+}
+
+.protected {
+  text-align: center; /* Center align the text */
+}
+
+.protected p {
+  font-weight: bold; /* Make the text bold */
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between items */
+}
+
+.column {
+  width: calc(50% - 10px); /* Adjust the width of each column */
+}
+
+.photo {
+  width: 100%;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.newsletter-form input[type="email"] {
+  width: 20%; /* Full width */
+  padding: 10px; /* Padding */
+  margin-bottom: 10px; /* Bottom margin */
+  border: 1px solid #ccc; /* Border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Input text font size */
+}
+
+.newsletter-form button {
+  background-color: #4CAF50; /* Green background color */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+  font-size: 16px; /* Button text font size */
+}
+
+.newsletter-form button:hover {
+  background-color: #45a049; /* Darker green background color on hover */
+}
+
+/* Styling for social media icons */
+.social-icons {
+  margin-top: 20px; /* Top margin */
+  text-align: center; /* Center align */
+}
+
+.social-icons .btn {
+  display: inline-block; /* Display inline-block */
+  margin: 0 10px; /* Margin between icons */
+  font-size: 24px; /* Icon font size */
+  color: #555; /* Icon color */
+  transition: color 0.3s; /* Smooth transition */
+}
+
+.social-icons .btn:hover {
+  color: #333; /* Darker icon color on hover */
+}
+
+footer {
+  background-color: #9a805d; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  width: 1000%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  margin-bottom: 20px;
+}
+
+.footer-content h2 {
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+.newsletter-form {
+  margin-top: 10px;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.newsletter-form button[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+          /* Button style */
+          #editSaveButton {
+            background-color:#ff9f0586;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        /* Button hover effect */
+        #editSaveButton:hover {
+            background-color: #7f4f0186;
+        }
+/* introduction page */
+
+#introhdr{
+  background-image: url(ewrfr.jpg); 
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+  min-height: 580px;
+}
+
+.intro_content, .more_content {
+  font-family: 'Playfair Display', serif; /* Use Playfair Display font for titles */
+  font-size: large;
+}
+
+.intro_content p, .more_content p {
+  font-family: sans-serif; /* Use sans-serif font for regular paragraphs */
+}
+
+      /* Button styles */
+      .edit-button {
+        background-color: #ff9f0586; /* Orange background color */
+        border: none; /* Remove border */
+        color: white; /* White text color */
+        padding: 10px 20px; /* Add padding */
+        text-align: center; /* Center text */
+        text-decoration: none; /* Remove underline */
+        display: inline-block; /* Make it inline block */
+        font-size: 16px; /* Set font size */
+        cursor: pointer; /* Add cursor pointer */
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    /* On hover, change background color */
+    .edit-button:hover {
+        background-color: #7f4f0186;
+    }
+
+    /* Disable text selection */
+    [contenteditable="false"] {
+        user-select: none;
+    }
+
+
+.locations {
+  font-size: 24px; /* Adjust the font size as needed */
+}
+body {
+  background-color: rgba(49, 40, 16, 0.459); /* Set background color to black */
+}
+.symbol{
+background-color: rgb(83, 78, 6);
+}
+.locations h1{
+  font-size: xx-large;
+  padding-top: 90px;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 120px;
+  font-size: 160px;
+  font-weight: 300;
+  line-height: 50px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.more_content {
+  font-family: "Arial", sans-serif; /* Use Arial or any suitable font */
+  text-align: center; /* Center align the text */
+  padding: 20px; /* Add equal padding */
+  font-size: 18px; /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+}
+
+#hikkaduwaContent {
+font-family: "Arial", sans-serif; /* Use Arial or any suitable font */
+text-align: center; /* Center align the text */
+padding: 20px; /* Add equal padding */
+font-size: 18px; /* Increase the font size */
+font-weight: bold; /* Make the text bold */
+}
+
+.intro_content p {
+font-family: "Arial", sans-serif; /* Use Arial or any suitable font */
+text-align: center; /* Center align the text */
+padding: 20px; /* Add equal padding */
+font-size: 20px; /* Increase the font size */
+font-weight: bold; /* Make the text bold */
+color: #333; /* Darker color for better visibility */
+}
+
+
+#udawalaweContent {
+font-family: "Arial", sans-serif; /* Use Arial or any suitable font */
+text-align: center; /* Center align the text */
+padding: 20px; /* Add equal padding */
+font-size: 18px; /* Increase the font size */
+font-weight: bold; /* Make the text bold */
+}
+
+
+
+.locations p{
+  padding-top: 90px;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 120px;
+  font-size: 160px;
+  font-weight: 300;
+  line-height: 50px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.nature{
+  font-family: 'Playfair Display', serif;
+  padding-bottom: 100px;
+}
+
+.intro_box{
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 160px;
+  background-color: rgb(21, 51, 24);
+}
+
+.intro_box h3{
+  align-items: center;
+  font-size: 42px;
+  font-family: 'Playfair Display', serif;
+  padding-left: 340px;
+}
+
+.intro_box p{
+  align-items: center;
+  font-size: 16px;
+  color: white;
+  padding-left: 310px;
+  word-spacing: 4px;
+}
+
+.nature_content{
+  margin-left:auto;
+  margin-bottom: 100px;
+}
+
+.intro_content{
+  align-self: center;
+  width: 950px; 
+  padding: 20px;
+  border: 5px solid rgb(18, 18, 18);
+  border-radius: 60px;
+  margin: 033px;
+  margin-top: -120px;
+  margin-left: 250px;
+  background-color: rgb(255, 255, 255);
+  align-content: center;
+}
+
+        /* Button style */
+        #editSaveButton {
+          background-color:#ff9f0586;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+          border-radius: 8px;
+          outline: none;
+      }
+
+      /* Button hover effect */
+      #editSaveButton:hover {
+          background-color: #7f4f0186;
+      }
+
+.intro_content h1{
+  font-size: 120px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  position: relative;
+}
+.intro_content h4{
+  align-items: left;
+  font-size: 35px;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  position: relative;
+}
+
+.intro_content h4::after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 60px; 
+  background-color: rgb(9, 89, 44);
+  position: absolute;
+  top: 100%;
+  margin-top: 5px;
+  margin-left: 220px;
+}
+
+.intro_content p{
+  font-size: 26px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.nature_content img{
+  padding-left: 621px;
+  margin-top: -286px;
+  width: 550px;
+  height: 341px;
+}
+
+.nature_content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.intro_para{
+  width: 50%;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  padding-left: 650px;
+  font-size: 30px;
+}
+
+#hortonhdr{
+  background-color: aqua;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.8); 
+}
+
+.more_content p{
+  padding-top: 150px;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 150px;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-family: 'Playfair Display', serif;
+  line-height: 30px;
+  word-spacing: 5px;
+  font-size:  20px;
+  text-align: center;
+}
+
+.more_content img{
+  padding-top: 20px;
+  padding-left: 500px;
+  padding-right: 300px;
+  padding-bottom: 70px;
+  width: 500px;
+}
+
+.sinharaja{
+  padding-top: 10px;
+  padding-bottom: 100px;
+}
+
+.sinharaja h3{
+  padding-top: 10px;
+  padding-left: 500px;
+  padding-bottom: 10px;
+  font-size: 45px;
+}
+
+.sinharaja h3:hover {
+  color: rgb(9, 89, 44); 
+  cursor: pointer;
+  position: relative;
+  transition: .5s;
+}
+
+
+@keyframes underline-animation {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.letter{
+  font-size: 80px;
+  padding-left: 50px;
+  text-align: center;
+}
+
+.sinharaja p{
+  padding-top: 50px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 60px;
+  font-size: 18px;
+  line-height: 30px;
+  word-spacing: 4px;
+  font-family: 'Playfair Display', serif;
+}
+
+#sinharajahdr{
+  background-image: url(images/sinharaja\ bg\ 2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  box-shadow: inset 0 0 0 1000px rgba(27, 154, 50, 0.5); 
+}
+
+.symbol{
+  font-size: 100px;
+  text-align: center;
+}
+
+
+.minneriya{
+  padding-top: 10px;
+  padding-bottom: 100px;
+  font-family: 'Playfair Display', serif;
+}
+
+.minneriya h3{
+
+  font-size: 60px;
+  text-align: center;
+}
+
+.minneriya h3:hover {
+  color: rgba(0, 0, 0, 0.412); 
+  cursor: pointer;
+  position: relative;
+  transition: .5s;
+}
+
+.minneriya h3:hover::after {
+  content: '';
+  display: block;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 100%;
+}
+
+.minneriya p{
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  line-height: 20px;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+.minneriya_content p{
+  text-align: justify;
+  font-size: 18px;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 50px;
+  line-height: 40px;
+}
+
+.table h3{
+  padding-top: 75px;
+  padding-bottom: 10px;
+  padding-left: 75px;
+  font-size: 40px;
+}
+
+.table h3:hover {
+  color: rgb(9, 89, 44); 
+  cursor: pointer;
+  position: relative;
+  transition: .5s;
+}
+
+.table h3:hover::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 90%;
+  background-color: rgb(89, 88, 15);
+  position: absolute;
+  top: 100%;
+  animation: underline-animation 0.3s ease-in-out forwards;
+}
+
+/* Style for introduction and moreContent */
+#introduction, #moreContent {
+font-size: 16px;
+line-height: 1.5;
+margin-bottom: 20px;
+}
+
+/* Style for titles */
+.udawalaweTitle, .hikkaduwaTitle {
+font-size: 24px;
+font-weight: bold;
+color: #007bff; /* Blue color */
+}
+
+/* Style for content */
+.udawalaweContent, .hikkaduwaContent {
+font-size: 14px;
+line-height: 1.6;
+margin-bottom: 20px;
+}
+
+
+.table table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-top: 60px;
+  margin-left: 75px;
+  margin-right: 50px;
+  margin-bottom: 60px;
+  font-size: 18px;
+  line-height: 30px;
+  word-spacing: 3px;
+}
+
+.table th, td {
+  border: 3px solid #333123;
+  padding: 20px;
+  text-align: left;
+}
+
+.table th {
+  background-color: rgba(55, 50, 40, 0.9);
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+
+.table tr:hover{
+  color: rgb(78, 74, 53);
+  cursor: pointer;
+  position: relative;
+  transition: .5s;
+}
+
+.table tr:hover::after{
+  color: black;
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.table img {
+  max-width: 400px;
+  height: auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+  border-radius: 10px;
+}
+
+.table .footer {
+  text-align: center;
+  font-style: italic;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(129, 127, 111, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.table tbody tr:hover::after {
+  background-color: rgba(6, 49, 9, 0.3); 
+  transition: background-color 0.3s ease-in-out;
+}
+
+.table img {
+  opacity: 0.9;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.table img:hover {
+  opacity: 1;
+}
+/* CSS for Newsletter Subscription Form */
+.emailInput {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 200px;
+}
+
+.emailInput:focus {
+outline: none;
+border-color:#ff9f0586; /* Change border color when focused */
+}
+
+.newsletterForm button {
+padding: 10px;
+border: none;
+border-radius: 5px;
+background-color: #ff9f0586;
+color: white;
+cursor: pointer;
+}
+
+.newsletterForm button:hover {
+background-color: #7f4f0186;
+/* Change background color on hover */
+}
+
